@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zada Perfumes — Admin</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;600;900&family=Raleway:wght@200;300;400&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="shop.css" />
+</head>
+<body>
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+  <div class="scroll-progress" id="scrollProgress"></div>
+  <div class="overlay" id="overlay"></div>
+  <div class="toast-container" id="toastContainer"></div>
+
+  <nav id="mainNav">
+    <a class="nav-logo" href="index.html">ZADA</a>
+    <ul class="nav-center">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="admin.html" class="active">Admin</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a class="nav-btn" href="shop.html" title="Back to Shop" style="font-size:0.75rem;letter-spacing:0.1em;width:auto;padding:0 14px; display:inline-flex; align-items:center; justify-content:center; text-decoration:none;">🏠 Shop</a>
+    </div>
+  </nav>
+
+  <main style="padding: 120px 60px 80px;">
+    <div class="shop-header" style="padding: 0; margin-bottom: 18px;">
+      <div class="shop-header-left">
+        <div class="shop-eyebrow">Admin Control</div>
+        <h1 class="shop-title">Admin Dashboard</h1>
+        <p class="shop-count" id="shopCount">Loading…</p>
+      </div>
+    </div>
+
+    <section class="admin-tools" style="margin-bottom: 24px; display:flex; flex-wrap:wrap; gap:12px; align-items:center;">
+      <div style="flex:1; min-width:240px; color: var(--text-muted);font-size:0.85rem; line-height:1.4;">Use this panel to manage the live shop catalog. Add, edit, delete, or upload products in EGP pricing and watch updates appear in the Shop page instantly.</div>
+      <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;">
+        <input id="bulkUploadFile" type="file" accept=".csv" style="background:rgba(255,255,255,0.1);border:1px solid rgba(201,168,76,0.2);color:#fff;padding:8px;" />
+        <button class="btn-gold btn-sm" id="bulkUploadBtn" style="padding:8px 14px;">Upload CSV</button>
+      </div>
+      <div style="width:100%; color: var(--text-muted); font-size:0.75rem;">CSV columns: name,desc,price,oldPrice,image,icon,category,notes(semi-colon separated),inStock(true/false) — Note: CSV image column expects URL, use form for file uploads</div>
+    </section>
+
+    <div class="panel admin-panel" id="adminPanel" style="--panel-w:100%; position:static; transform:none; border:none; background:transparent; box-shadow:none;">
+      <div class="panel-body" id="adminBody"></div>
+      <div class="panel-footer" id="adminFooter"></div>
+    </div>
+
+    <div id="confirmDialog" class="confirm-dialog">
+      <div class="confirm-box">
+        <div class="confirm-icon">⚠</div>
+        <div class="confirm-title">Are you sure?</div>
+        <p class="confirm-msg" id="confirmMsg">This action cannot be undone.</p>
+        <div class="confirm-btns">
+          <button class="btn-danger btn-sm" id="confirmYes">Delete</button>
+          <button class="btn-ghost btn-sm" id="confirmNo">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-storage-compat.js"></script>
+  <script>
+    window.firebaseConfig = {
+      apiKey: "YOUR_API_KEY",
+      authDomain: "YOUR_PROJECT.firebaseapp.com",
+      projectId: "YOUR_PROJECT_ID",
+      storageBucket: "YOUR_PROJECT.appspot.com",
+      messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+      appId: "YOUR_APP_ID"
+    };
+    if (typeof firebase !== 'undefined' && !firebase.apps.length) {
+      firebase.initializeApp(window.firebaseConfig);
+      window.firebaseDb = firebase.firestore();
+      window.firebaseAuth = firebase.auth();
+      window.firebaseStorage = firebase.storage();
+    }
+  </script>
+  <script src="shop.js"></script>
+  <script>
+    // Ensure render on admin page
+    if (typeof renderAdmin === 'function') {
+      renderAdmin();
+    }
+  </script>
+</body>
+</html>

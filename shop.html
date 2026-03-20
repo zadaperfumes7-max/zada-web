@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zada Perfumes — Shop</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;600;900&family=Raleway:wght@200;300;400&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="shop.css" />
+</head>
+<body class="shop-page-bg">
+
+  <!-- Cursor -->
+  <div class="cursor"      id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- Scroll Progress -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- Overlay (closes all panels) -->
+  <div class="overlay" id="overlay"></div>
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Confirm Dialog -->
+  <div class="confirm-dialog" id="confirmDialog">
+    <div class="confirm-box">
+      <div class="confirm-icon">⚠</div>
+      <div class="confirm-title">Are you sure?</div>
+      <p class="confirm-msg" id="confirmMsg">This action cannot be undone.</p>
+      <div class="confirm-btns">
+        <button class="btn-danger btn-sm" id="confirmYes">Delete</button>
+        <button class="btn-ghost  btn-sm" id="confirmNo">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════ NAV ══════════════ -->
+  <nav id="mainNav">
+    <a class="nav-logo" href="index.html">ZADA</a>
+
+    <ul class="nav-center">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html#about">Our Story</a></li>
+      <li><a href="shop.html" class="active">Shop</a></li>
+      <li><a href="index.html#experience">Experience</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <!-- Wishlist -->
+      <button class="nav-btn" id="wishNavBtn" title="Wishlist">
+        ♡
+        <span class="nav-badge" id="wishBadge">0</span>
+      </button>
+      <!-- Cart -->
+      <button class="nav-btn" id="cartNavBtn" title="Cart">
+        🛒
+        <span class="nav-badge" id="cartBadge">0</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ══════════════ PAGE HEADER ══════════════ -->
+  <div class="shop-header">
+    <div class="shop-header-left">
+      <div class="shop-eyebrow">The Collection</div>
+      <h1 class="shop-title">SHOP</h1>
+      <p class="shop-count" id="shopCount">Loading…</p>
+    </div>
+    <div class="filter-bar">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="oud">Oud</button>
+      <button class="filter-btn" data-filter="floral">Floral</button>
+      <button class="filter-btn" data-filter="fresh">Fresh</button>
+      <button class="filter-btn" data-filter="oriental">Oriental</button>
+      <button class="filter-btn" data-filter="woody">Woody</button>
+    </div>
+  </div>
+
+  <!-- ══════════════ PRODUCT GRID ══════════════ -->
+  <div class="shop-grid-wrapper">
+    <div class="product-grid" id="productGrid">
+      <!-- injected by shop.js -->
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════
+       CART PANEL
+  ════════════════════════════════════════ -->
+  <div class="panel" id="cartPanel">
+    <div class="panel-header">
+      <div class="panel-title">Your Cart</div>
+      <button class="panel-close">✕</button>
+    </div>
+    <div class="panel-body" id="cartBody"></div>
+    <div class="panel-footer" id="cartFooter"></div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════
+       WISHLIST PANEL
+  ════════════════════════════════════════ -->
+  <div class="panel" id="wishPanel">
+    <div class="panel-header">
+      <div class="panel-title">Wishlist</div>
+      <button class="panel-close">✕</button>
+    </div>
+    <div class="panel-body" id="wishBody"></div>
+    <div class="panel-footer" id="wishFooter"></div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════
+       CHECKOUT PANEL
+  ════════════════════════════════════════ -->
+  <div class="panel" id="checkoutPanel">
+    <div class="panel-header">
+      <div class="panel-title">Checkout</div>
+      <button class="panel-close">✕</button>
+    </div>
+    <div class="panel-body" id="checkoutBody"></div>
+    <div class="panel-footer" id="checkoutFooter"></div>
+  </div>
+
+
+  <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-storage-compat.js"></script>
+  <script>
+    window.firebaseConfig = {
+      apiKey: "YOUR_API_KEY",
+      authDomain: "YOUR_PROJECT.firebaseapp.com",
+      projectId: "YOUR_PROJECT_ID",
+      storageBucket: "YOUR_PROJECT.appspot.com",
+      messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+      appId: "YOUR_APP_ID"
+    };
+    if (typeof firebase !== 'undefined' && !firebase.apps.length) {
+      firebase.initializeApp(window.firebaseConfig);
+      window.firebaseDb = firebase.firestore();
+      window.firebaseAuth = firebase.auth();
+      window.firebaseStorage = firebase.storage();
+    }
+  </script>
+  <script src="shop.js"></script>
+</body>
+</html>

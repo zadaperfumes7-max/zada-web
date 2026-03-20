@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zada Perfumes</title>
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;600;900&family=Raleway:wght@200;300;400&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ══ Page Loader ══ -->
+  <div id="loader">
+    <div class="loader-logo">ZADA</div>
+    <div class="loader-bar-wrapper">
+      <div class="loader-bar"></div>
+    </div>
+    <div class="loader-tagline">Crafting your experience…</div>
+  </div>
+
+  <!-- ══ Scroll Progress Bar ══ -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- ══ Custom Cursor ══ -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- ══ Section Transition Overlay ══ -->
+  <div class="section-transition" id="sectionTransition"></div>
+
+  <!-- ══ Gold Particles Canvas ══ -->
+  <canvas class="particles-canvas" id="particlesCanvas"></canvas>
+
+  <!-- ══ Navigation ══ -->
+  <nav id="mainNav">
+    <a class="nav-logo" href="#hero">ZADA</a>
+    <ul class="nav-links">
+      <li><a href="#about">Our Story</a></li>
+      <li><a href="#products">Collection</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button
+      class="nav-cta"
+      onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })"
+    >
+      Enquire Now
+    </button>
+  </nav>
+
+  <!-- ══════════════ HERO SLIDE ══════════════ -->
+  <div class="slide-wrapper" id="hero">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+
+    <div class="hero-content">
+      <p class="hero-eyebrow">Est. 2024 · Luxury Fragrances</p>
+      <h1 class="hero-title">ZADA<br>PERFUMES</h1>
+      <p class="hero-subtitle">Where every note tells a story of desire</p>
+      <div class="hero-divider"></div>
+      <div class="hero-cta-group">
+        <button
+          class="btn-primary"
+          onclick="document.getElementById('products').scrollIntoView({ behavior: 'smooth' })"
+        >
+          <span>Explore Collection</span>
+        </button>
+        <button
+          class="btn-ghost"
+          onclick="document.getElementById('about').scrollIntoView({ behavior: 'smooth' })"
+        >
+          Our Story
+        </button>
+      </div>
+    </div>
+
+    <div class="scroll-hint">
+      <span>Scroll</span>
+      <div class="scroll-arrow"></div>
+    </div>
+  </div>
+
+  <!-- ══════════════ ABOUT / INFO SLIDE ══════════════ -->
+  <!-- Background: background2.png  |  Small photo: photo1.png -->
+  <div class="slide-wrapper" id="about">
+    <div class="about-content">
+
+      <!-- Left: text -->
+      <div class="about-text">
+        <div class="section-label reveal">Our Heritage</div>
+        <h2 class="about-heading reveal delay-1">
+          Born from the Heart<br>of Ancient Traditions
+        </h2>
+        <p class="about-body reveal delay-2">
+          Zada Perfumes was founded on the belief that fragrance is the most intimate
+          form of self-expression. Each bottle we craft is a journey — through rare oud
+          forests, Moroccan rose fields, and Mediterranean citrus groves. We blend
+          centuries-old techniques with modern artistry to create scents that linger
+          long after the moment passes.
+        </p>
+        <div class="about-stats reveal delay-3">
+          <div class="stat">
+            <span class="stat-num">48+</span>
+            <span class="stat-label">Rare Ingredients</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">12</span>
+            <span class="stat-label">Master Blends</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">99%</span>
+            <span class="stat-label">Natural Essences</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: photo1.png in glass frame -->
+      <div class="about-visual reveal-right">
+        <div class="photo-frame">
+          <img src="photo1.png" alt="Zada Perfumes atelier" />
+          <div class="photo-glass"></div>
+          <div class="photo-corner tl"></div>
+          <div class="photo-corner tr"></div>
+          <div class="photo-corner bl"></div>
+          <div class="photo-corner br"></div>
+          <div class="photo-badge">
+            <span class="photo-badge-title">Craftsmanship</span>
+            <span class="photo-badge-value">Hand-crafted, always</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══════════════ PRODUCTS SLIDE ══════════════ -->
+  <div class="slide-wrapper" id="products" style="height: auto; min-height: 100vh; padding: 140px 0 100px;">
+
+    <div class="products-header reveal">
+      <div class="section-label" style="justify-content: center;">The Collection</div>
+      <h2 class="products-heading">Signature Fragrances</h2>
+      <p class="products-sub">Each scent, a chapter. Each bottle, a world.</p>
+    </div>
+
+    <!-- Marquee cards injected by main.js -->
+    <div class="products-marquee-wrapper reveal delay-2">
+      <div class="marquee-track" id="marqueeTrack"></div>
+    </div>
+
+    <div style="text-align: center; margin-top: 50px; position: relative; z-index: 2;" class="reveal delay-3">
+      <button
+        class="btn-ghost"
+        onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })"
+      >
+        Request Custom Blend
+      </button>
+    </div>
+
+  </div>
+
+  <!-- ══════════════ EXPERIENCE SLIDE ══════════════ -->
+  <div class="slide-wrapper" id="experience">
+    <div class="experience-content">
+
+      <div class="section-label reveal" style="justify-content: center;">The Philosophy</div>
+      <h2 class="exp-heading reveal delay-1">Fragrance as a Fine Art</h2>
+      <p class="exp-body reveal delay-2">
+        At Zada, we believe scent is the invisible architecture of memory. Every fragrance
+        we compose is designed to transport you — to a moment, a place, a feeling that
+        words cannot reach.
+      </p>
+
+      <div class="pillars">
+        <div class="pillar reveal delay-1">
+          <span class="pillar-icon">🌿</span>
+          <div class="pillar-title">Natural Origins</div>
+          <p class="pillar-desc">
+            Every ingredient traced to its source — from Somalian oud to Grasse jasmine absolute.
+          </p>
+        </div>
+        <div class="pillar reveal delay-2">
+          <span class="pillar-icon">⚗️</span>
+          <div class="pillar-title">Artisan Craft</div>
+          <p class="pillar-desc">
+            Blended in small batches by our master perfumers with over decades of combined expertise.
+          </p>
+        </div>
+        <div class="pillar reveal delay-3">
+          <span class="pillar-icon">♾️</span>
+          <div class="pillar-title">Timeless Longevity</div>
+          <p class="pillar-desc">
+            High-concentration formulas that evolve beautifully on skin through twelve hours and beyond.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+<!---->
+  <!-- ══════════════ CONTACT SLIDE ══════════════ -->
+  <div class="slide-wrapper" id="contact" style="height: auto; min-height: 100vh;">
+    <div class="contact-glow"></div>
+
+    <div class="contact-inner">
+
+      <!-- Left: info -->
+      <div class="contact-left">
+        <div class="section-label reveal">Get in Touch</div>
+        <h2 class="contact-heading reveal delay-1">
+          Begin Your<br>Fragrance Journey
+        </h2>
+        <p class="contact-tagline reveal delay-2">
+          Whether you seek a signature scent or a bespoke creation crafted entirely
+          for you — we are here to guide every note.
+        </p>
+
+        <div class="contact-info reveal delay-3">
+          <div class="contact-item">
+            <div class="contact-item-icon">✦</div>
+            <div class="contact-item-text">
+              <span class="ci-label">Visit Us</span>
+              <span class="ci-value">6th of october , 11th district</span>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">◈</div>
+            <div class="contact-item-text">
+              <span class="ci-label">Email</span>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">◇</div>
+            <div class="contact-item-text">
+              <span class="ci-label">Hours</span>
+              <span class="ci-value">24 hrs</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: enquiry form -->
+      <div class="contact-form reveal-right delay-1">
+        <div class="form-title">Send an Enquiry</div>
+
+        <div class="form-group">
+          <label class="form-label">Your Name</label>
+          <input class="form-input" type="text" placeholder="Enter your name" />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email Address</label>
+          <input class="form-input" type="email" placeholder="your@email.com" />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Phone Number</label>
+          <input class="form-input" type="tel" placeholder="e.g. +20 11 5448 0230" />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Interest</label>
+          <input class="form-input" type="text" placeholder="e.g. Bespoke blend, Gift, Collection…" />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Message</label>
+          <textarea class="form-textarea" placeholder="Tell us your story…"></textarea>
+        </div>
+        <button class="form-submit">Send Message →</button>
+      </div>
+
+    </div>
+
+    <!-- Footer bar -->
+    <div class="footer-bottom">
+      <div class="footer-logo">ZADA</div>
+      <div class="footer-copy">© 2024 Zada Perfumes · All rights reserved</div>
+      <div class="footer-social">
+        <a class="social-link" href="https://www.instagram.com/zada_fragrances?igsh=M3FuZDJ3Y3Bwa2ow" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <img src="instagram.png" alt="Instagram" />
+        </a>
+        <a class="social-link" href="https://wa.me/201154480230" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+          <img src="whatsapp.png" alt="WhatsApp" />
+        </a>
+      </div>
+    </div>
+
+  <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-storage-compat.js"></script>
+  <script>
+    window.firebaseConfig = {
+      apiKey: "YOUR_API_KEY",
+      authDomain: "YOUR_PROJECT.firebaseapp.com",
+      projectId: "YOUR_PROJECT_ID",
+      storageBucket: "YOUR_PROJECT.appspot.com",
+      messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+      appId: "YOUR_APP_ID"
+    };
+    if (typeof firebase !== 'undefined' && !firebase.apps.length) {
+      firebase.initializeApp(window.firebaseConfig);
+      window.firebaseDb = firebase.firestore();
+      window.firebaseAuth = firebase.auth();
+      window.firebaseStorage = firebase.storage();
+    }
+  </script>
+  <script src="main.js"></script>
+</body>
+</html>
